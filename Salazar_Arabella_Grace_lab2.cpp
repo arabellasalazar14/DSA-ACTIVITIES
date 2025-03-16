@@ -49,7 +49,7 @@ Node *insertAtTheEnd(string data, Node *head){
     return head;
     }  
 
-Node *inserAtTheBeginning(string data, Node *head){
+Node *insertAtTheBeginning(string data, Node *head){
     Node *newNode = createNode(data);
     newNode->link = head;
 
@@ -149,24 +149,26 @@ Node *deleteFromGivenNode(string givenNode, Node *head){
 
 int main(){
 
-    Node *sample = new Node;
-    sample->songName = "Heaven Knows by Orange and Lemon";
+    Node *head = createNode("Sanctuary by Joji");
 
-    cout << sample->songName <<endl;
-
-    Node *head = createNode("Santuary by joji");
+    head = insertAtTheEnd("Forever Young by BLACKPINK", head);
+    head = insertAtTheEnd("Pink Venom by BLACKPINK", head);
+    head = insertAtTheEnd("Shut Down by BLACKPINK", head); 
    
-   head = insertAtTheEnd("Sunday Morning by Maroon 5", head);
-   traverse(head);
+    head = insertAtTheBeginning("Fearless by Taylor Swift", head);
+    head = insertAtTheBeginning("Love Story by Taylor Swift", head);
+    head = insertAtTheBeginning("You Belong With Me by Taylor Swift", head);
+    head = insertAtTheBeginning("Blank Space by Taylor Swift", head);
 
-  head = insertAtTheEnd("forever young by BLACKPINK", head);
-  traverse(head);
+    cout << insertAfter("Blank Space by Taylor Swift", "Pag-ibig by Yeng Constantino", head) <<endl;
+    cout << insertAfter("Pag-ibig by Yeng Constantino", "Jeepney Love Story by Yeng Constantino", head) <<endl;
+    cout << insertAfter("Jeepney Love Story by Yeng Constantino", "Chinito by Yeng Constantino", head) <<endl;
 
-  head = insertAtTheEnd("Pink Venom by BLACKPINK", head);
-  traverse(head);
+    cout << deleteAtEnd(head) <<endl;
+    head = deleteFromBeginning(head);
+    head = deleteFromGivenNode("Forever Young by BLACKPINK", head);
 
-  head = insertAtTheEnd("Shut Down by BLACKPINK", head);
-  traverse(head);
+    traverse(head);
 
 
     return 0;
